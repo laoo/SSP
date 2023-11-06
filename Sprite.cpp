@@ -592,12 +592,12 @@ void createSprite( Image const& image, Bounds const& bounds, Palette const& pal,
     if ( literal )
     {
       fout.write( ( char* )literalData.data(), literalData.size() );
-      LOG << literalData.size() << " bytes of sprite data written to " << outputSprite << " at offset " << off << ". Packed sprite would have " << packedData.size() << " bytes";
+      LOG << literalData.size() << " bytes of sprite data written to at offset " << off << ". Packed sprite would have " << packedData.size() << " bytes";
     }
     else
     {
       fout.write( ( char* )packedData.data(), packedData.size() );
-      LOG << packedData.size() << " bytes of sprite data written to " << outputSprite << " at offset " << off << ". Literal sprite would have " << literalData.size() << " bytes";
+      LOG << packedData.size() << " bytes of sprite data written to at offset " << off << ". Literal sprite would have " << literalData.size() << " bytes";
     }
   }
 

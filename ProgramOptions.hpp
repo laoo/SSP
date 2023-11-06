@@ -25,6 +25,7 @@ public:
   bool backround() const;
   bool verbose() const;
   bool separateOutput() const;
+  bool noSpriteGen() const;
 
 private:
   boost::program_options::variables_map mMap = {};

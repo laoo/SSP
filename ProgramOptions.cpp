@@ -14,13 +14,14 @@ ProgramOptions::ProgramOptions( int argc, char const* argv[] )
     ( "require-palette,r", "report error if palette file does not exist (default: substitue input for palette if it does not exist)" )
     ( "save-optimal-palette,s", po::value<std::string>(), "saves optimal palette under given filename if it does not exist or is older than source palette (default: does nothing)" )
     ( "write-output-image,w", po::value<std::string>(), "write PNG image with reduced palette (default: does nothing)" )
-    ( "separate-outputs,t", "write palette and sprite data separate files (default: one file)" )
+    ( "separate-outputs,t", "write palette and sprite data to separate files (default: one file)" )
     ( "frame-width,f", po::value<int>(), "width of one frame of animation, must be a divisor of image width (default: image width)" )
     ( "max-colors,c", po::value<int>(), "maximal number of colors in the palette (default: 16)" )
     ( "bpp,b", po::value<int>(), "forced bits per pixel (default: smallest possible)" )
     ( "literal,l", "do not compress sprite (default: off)" )
     ( "background,g", "sprite is a background sprite (first color does not need to be black/transparent (default: off)" )
     ( "verbose,v", "write verbose information to standard output (default: off)" )
+    ( "no-sprite-gen,x", "do not generate output sprite. Useful if only optimal palette is needed (default: off)" )
     ;
 
   mPosDesc
@@ -169,4 +170,9 @@ bool ProgramOptions::verbose() const
 bool ProgramOptions::separateOutput() const
 {
   return mMap.count( "separate-outputs" ) > 0;
+}
+
+bool ProgramOptions::noSpriteGen() const
+{
+  return mMap.count( "no-sprite-gen" ) > 0;
 }

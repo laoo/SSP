@@ -20,6 +20,10 @@ int main( int argc, char const* argv[] )
     LOG << "Suzy Sprite Packer";
 
     Palette palette{ options.palette(), options.maxColors(), options.optimalPalette() };
+
+    if ( options.noSpriteGen() )
+      return 0;
+
     Image image{ options.input() };
     Bounds bounds{ 0, 0, image.width() - 1, image.height() - 1 };
     LOG << "Image " << options.input() << " dimensions: " << image.width() << "x" << image.height();
